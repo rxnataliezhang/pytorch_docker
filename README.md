@@ -7,7 +7,7 @@ Suppose you have cuda already installed, and cuda version is `cuda-9.0`, now you
 
 ```bash
 # download this repo
-$ git clone https://github.com/richardbaihe/pytorch_docker.git
+$ git clone https://github.com/rxnataliezhang/pytorch_docker.git
 $ cd pytorch_docker
 ```
 
@@ -50,13 +50,13 @@ $ docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 - if you want a quick start, you can pull the image from docker hub and skip the build step
 ```bash
 # pull from docker hub directly
-$ docker pull richardbaihe/pytorch:gpu
+$ docker pull rxzhang/pytorch:gpu
 # check
 $ docker image ls
 ```
 
 - otherwise you need build your own image
-- keep in mind that all user name in zshrc and Dockerfile should be replace from "baihe" to your desired name
+- keep in mind that all user name in zshrc and Dockerfile should be replace from "rxzhang" to your desired name
 ```bash
 $ docker build -t pytorch:gpu -f Dockerfile .
 
@@ -79,9 +79,9 @@ between local file system and docker file system.
 # start a container
 $ docker container run -it \
     --name gpu_env \
-    --runtime=nvidia -u baihe \
-    --mount type=bind,source=/data/baihe/datasets,target=/home/baihe/datasets \
-    --mount type=bind,source=/data/baihe/projects,target=/home/baihe/projects \
-    --mount type=bind,source=/data/baihe/checkpoints,target=/home/baihe/checkpoints \
-    --shm-size=16g richardbaihe/pytorch:gpu /bin/zsh
+    --runtime=nvidia -u rxzhang \
+    --mount type=bind,source=/data/rxzhang/datasets,target=/home/rxzhang/datasets \
+    --mount type=bind,source=/data/rxzhang/projects,target=/home/rxzhang/projects \
+    --mount type=bind,source=/data/rxzhang/checkpoints,target=/home/rxzhang/checkpoints \
+    --shm-size=16g rxzhang/pytorch:gpu /bin/zsh
 ```

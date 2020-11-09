@@ -1,7 +1,7 @@
 ARG BASE_IMAGE=nvcr.io/nvidia/pytorch:20.06-py3
 FROM $BASE_IMAGE                                                                        
-MAINTAINER richardbaihe <h32bai@uwaterloo.ca>                                                                 
-ENV HOME=/home/root USER=baihe ANACONDA_HOME=/opt/anaconda3
+MAINTAINER rxzhang <nata.z0101@gmail.com>                                                                 
+ENV HOME=/home/root USER=rxzhang ANACONDA_HOME=/opt/anaconda3
 USER root
 
 # ===============
@@ -65,7 +65,7 @@ RUN pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="-
 # add user
 RUN useradd --create-home --no-log-init --shell /bin/zsh $USER \
     && adduser $USER sudo \
-    && echo 'baihe:richardbaihe' | chpasswd
+    && echo 'rxzhang:rxzhang' | chpasswd
 WORKDIR /home/${USER}
 
 CMD ["/bin/zsh"]
